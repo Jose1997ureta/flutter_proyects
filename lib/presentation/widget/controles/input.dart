@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class InputField extends StatelessWidget {
   final String label;
@@ -21,6 +22,8 @@ class InputField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       controller: controller,
+      // Para que se levante el error cuando se cumpla la condición
+      autovalidateMode: AutovalidateMode.onUserInteraction,
       decoration: InputDecoration(
         border: OutlineInputBorder(),
         fillColor: Colors.white,
@@ -28,6 +31,7 @@ class InputField extends StatelessWidget {
         hintText: label,
         prefixIcon: prefixIcon,
         errorStyle: const TextStyle(fontSize: 12, color: Colors.red),
+
         // labelText: "dd",
         // prefixText: "ff",
         // helperText: "fff",
@@ -35,6 +39,7 @@ class InputField extends StatelessWidget {
         // helperStyle: const TextStyle(color: Colors.green),
         // counterStyle: const TextStyle(color: Colors.yellow),
         // counterText: "gg",
+
         contentPadding: EdgeInsets.symmetric(
           horizontal: 0,
         ),
